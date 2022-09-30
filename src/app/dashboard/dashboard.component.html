@@ -1,21 +1,24 @@
-<mat-card class="dashboard-content" >
+<mat-card class="dashboard-content">
     <div class="main-content">
         <mat-card-title class="header-content">
             <div class="person-details-text">Person Details</div>
             <div>
-                <button mat-raised-button class="add-button">
+                <button mat-raised-button class="add-button" (click)="openForm()">
                     <div class="add-button-div">
-                        <div><mat-icon class="add-icon">add</mat-icon></div>
+                        <div>
+                            <mat-icon class="add-icon">add</mat-icon>
+                        </div>
                         <div class="add-button-text">Add Person</div>
                     </div>
                 </button>
             </div>
         </mat-card-title>
         <mat-card-content>
-            <div class="persons-table-div">
+            <div class="tablle-content">
                 <table class="table">
                     <tr>
                         <th></th>
+                        <th>ID</th>
                         <th>Full Name</th>
                         <th>Address</th>
                         <th>City</th>
@@ -24,54 +27,25 @@
                         <th>Phone Number</th>
                         <th>Actions</th>
                     </tr>
-                    <tr>
+                    <tr *ngFor=" let contact of contacts">
                         <th></th>
-                        <td>Lorem ipsum</td>
-                        <td>Nunc quis lacus interdum</td>
-                        <td>Praesent</td>
-                        <td>Aenean</td>
-                        <td>484659</td>
-                        <td>2164258378</td>
+                        <td>{{contact.personId}}</td>
+                        <td>{{contact.name}}</td>
+                        <td>{{contact.address}}</td>
+                        <td>{{contact.city}}</td>
+                        <td>{{contact.state}}</td>
+                        <td>{{contact.zipCode}}</td>
+                        <td>{{contact.phoneNumber}}</td>
                         <td>
                             <div class="action-icons">
-                                <mat-icon class="delete-icon">delete</mat-icon>
-                                <mat-icon class="edit-icon">edit</mat-icon>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th></th>
-                        <td>Lorem ipsum</td>
-                        <td>Nunc quis lacus interdum</td>
-                        <td>Praesent</td>
-                        <td>Aenean</td>
-                        <td>484659</td>
-                        <td>2164258378</td>
-                        <td>
-                            <div class="action-icons">
-                                <mat-icon class="delete-icon">delete</mat-icon>
-                                <mat-icon class="edit-icon">edit</mat-icon>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th></th>
-                        <td>Lorem ipsum</td>
-                        <td>Nunc quis lacus interdum</td>
-                        <td>Praesent</td>
-                        <td>Aenean</td>
-                        <td>484659</td>
-                        <td>2164258378</td>
-                        <td>
-                            <div class="action-icons">
-                                <mat-icon class="delete-icon">delete</mat-icon>
+                                <mat-icon class="delete-icon" (click)="deleteContact(contact.personId)">delete</mat-icon>
                                 <mat-icon class="edit-icon">edit</mat-icon>
                             </div>
                         </td>
                     </tr>
                 </table>
             </div>
-            
+
         </mat-card-content>
-    </div>    
+    </div>
 </mat-card>
