@@ -1,5 +1,14 @@
+$bg_color: #F7F7F7;
+
+@mixin flex($direction) {    
+    display: flex;
+    flex-direction: $direction;
+    justify-content: space-between;
+    margin: auto;
+}
+
 .form-page {    
-    background-color: #F7F7F7;
+    background-color: $bg_color;
     height: 100%;
 }
 
@@ -36,21 +45,17 @@
     text-align: left;
     padding: 5% 10%;
 }
-// .form-content input ,select, textarea {
-//     margin: 20px 0 10px 0;
-//     height: 35px;
-// }
 textarea{
     min-height: 3rem;
 }
 .city-state-zip-div{
-    display: flex;
-    justify-content: space-between;
-}
-.city-state-zip-div div {
-    display: flex;
-    flex-direction: column;
-    width: 30%;
+    @include flex(row);
+    width: 100%;
+
+    div {    
+        @include flex(column);
+        width: 30%;
+    }
 }
 .select-box {
     height: 40px;
@@ -58,16 +63,17 @@ textarea{
 }
 
 .buttonParent { 
-    display: flex; 
+    @include flex(row);
     margin: 20px 0 20px auto;
+
+    .button { 
+        background: #E2E2E2 0% 0% no-repeat padding-box;
+        border: 1px solid #969696;
+        cursor: pointer; 
+        width: 120px;
+    }
+    .addButton, .updateButton{
+        margin: auto 2rem auto auto;
+    }
 } 
 
-.button { 
-    background: #E2E2E2 0% 0% no-repeat padding-box;
-    border: 1px solid #969696;
-    cursor: pointer; 
-    width: 120px;
-} 
-.addButton {
-    margin: auto 2rem auto auto;
-}

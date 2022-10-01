@@ -13,44 +13,37 @@
                 <label for="name">Full Name</label>
                 <mat-form-field class="example-full-width" appearance="outline">
                     <mat-label>Enter Full Name</mat-label>
-                    <input matInput name="name" ngModel>
+                    <input matInput name="name" [(ngModel)] = "this.contact.name">
                 </mat-form-field>
                 <label for="name">Phone Number</label>
                 <mat-form-field class="example-full-width" appearance="outline">
                     <mat-label>Enter Phone Number</mat-label>
-                    <input matInput name="phoneNumber" ngModel>
+                    <input matInput name="phoneNumber"  [(ngModel)] = "this.contact.phoneNumber">
                 </mat-form-field>
                 <label for="name">Address</label>
-                <!-- <textarea name="" id="" cols="30" rows="10"></textarea> -->
                 <mat-form-field class="example-full-width" appearance="outline">
                     <mat-label>Enter Address</mat-label>
-                    <textarea matInput name="address" ngModel></textarea>
+                    <textarea matInput name="address"  [(ngModel)] = "this.contact.address"></textarea>
                 </mat-form-field>
                 <div class="city-state-zip-div">
                     <div>
-                        <label for="">City</label>
-                        <!-- <select class="select-box" name="" id="">
-                        <option value={{city}} *ngFor="let city of cities">{{city}}</option>
-                    </select> -->
+                        <label for="">State</label>
                         <mat-form-field appearance="outline">
-                            <mat-label>Select City</mat-label>
-                            <mat-select name="city" ngModel>
-                                <mat-option *ngFor="let city of cities" [value]="city">
-                                    {{city}}
+                            <mat-label>Select State</mat-label>
+                            <mat-select name="state"  [(ngModel)] = "this.contact.state">
+                                <mat-option *ngFor="let state of states" [value]="state">
+                                    {{state}}
                                 </mat-option>
                             </mat-select>
                         </mat-form-field>
                     </div>
                     <div>
-                        <label for="">State</label>
-                        <!-- <select class="select-box" name="" id="">
-                        <option value={{state}} *ngFor="let state of states">{{state}}</option>
-                    </select> -->
+                        <label for="">City</label>
                         <mat-form-field appearance="outline">
-                            <mat-label>Select State</mat-label>
-                            <mat-select name="state" ngModel>
-                                <mat-option *ngFor="let state of states" [value]="state">
-                                    {{state}}
+                            <mat-label>Select City</mat-label>
+                            <mat-select name="city"  [(ngModel)] = "this.contact.city">
+                                <mat-option *ngFor="let city of cities" [value]="city">
+                                    {{city}}
                                 </mat-option>
                             </mat-select>
                         </mat-form-field>
@@ -59,12 +52,13 @@
                         <label for="">Zip Code</label>
                         <mat-form-field class="example-full-width" appearance="outline">
                             <mat-label>Enter Zip Code</mat-label>
-                            <input matInput name="zipCode" ngModel>
+                            <input matInput name="zipCode"  [(ngModel)] = "this.contact.zipCode">
                         </mat-form-field>
                     </div>
                 </div>
                 <div class="buttonParent">
-                    <button mat-raised-button class="button addButton" id="addutton" type="submit">Add</button>
+                    <button mat-raised-button class="button addButton" id="addutton" type="submit" *ngIf="this.id == null">Add</button>
+                    <button mat-raised-button class="button addButton" id="addutton" type="submit" *ngIf="this.id != null">Update</button>
                     <button mat-raised-button class="button resetButton" type="reset">Reset</button>
                 </div>
             </form>
