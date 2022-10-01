@@ -34,4 +34,7 @@ export class DashboardComponent implements OnInit {
     })
   }
 
+  editContact(personId: number){
+    this.router.navigate(["update/"+personId]);
+  }
 }

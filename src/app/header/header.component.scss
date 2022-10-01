@@ -1,15 +1,21 @@
-.header-content {
-    display: flex; 
-    width: 80%;
-    margin: auto;
-    // padding-left: 6rem;  
-}
-.logo {
-    height: 50px;
-}
-.logo-text {
+
+@mixin flex($direction) {    
     display: flex;
-    flex-direction: column;
+    flex-direction: $direction;
+    margin: auto;
+}
+
+.header-content {
+    @include flex(row);
+    width: 80%; 
+
+    .logo {
+        height: 50px;
+    }
+}
+
+.logo-text {
+    @include flex(column);
 
     margin-left: 10px;
     text-align: left;
@@ -17,8 +23,8 @@
     letter-spacing: 0px;
     color: #008CFF;
     text-transform: uppercase;
-}
-
-.logo-text-book {
-    color: #42515F;
+    
+    .logo-text-book {
+        color: #42515F;
+    }
 }
