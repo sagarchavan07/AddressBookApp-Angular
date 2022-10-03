@@ -1,4 +1,4 @@
-$bg_color: #F7F7F7;
+@import '../../assets/styles/color.scss';
 
 @mixin flex($direction) {    
     display: flex;
@@ -44,9 +44,13 @@ $bg_color: #F7F7F7;
     flex-direction: column;
     text-align: left;
     padding: 5% 10%;
+
+    // mat-form-field input{
+    //     height: 0.5rem;
+    // }
 }
 textarea{
-    min-height: 3rem;
+    min-height: 2rem;
 }
 .city-state-zip-div{
     @include flex(row);
@@ -71,6 +75,7 @@ textarea{
         border: 1px solid #969696;
         cursor: pointer; 
         width: 120px;
+
     }
     .addButton, .updateButton{
         margin: auto 2rem auto auto;

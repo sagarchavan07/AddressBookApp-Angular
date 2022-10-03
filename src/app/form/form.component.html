@@ -12,17 +12,14 @@
             <form class="form-content" #addressookForm="ngForm" (ngSubmit)="addContact(addressookForm.value)">
                 <label for="name">Full Name</label>
                 <mat-form-field class="example-full-width" appearance="outline">
-                    <mat-label>Enter Full Name</mat-label>
                     <input matInput name="name" [(ngModel)] = "this.contact.name">
                 </mat-form-field>
                 <label for="name">Phone Number</label>
                 <mat-form-field class="example-full-width" appearance="outline">
-                    <mat-label>Enter Phone Number</mat-label>
                     <input matInput name="phoneNumber"  [(ngModel)] = "this.contact.phoneNumber">
                 </mat-form-field>
                 <label for="name">Address</label>
                 <mat-form-field class="example-full-width" appearance="outline">
-                    <mat-label>Enter Address</mat-label>
                     <textarea matInput name="address"  [(ngModel)] = "this.contact.address"></textarea>
                 </mat-form-field>
                 <div class="city-state-zip-div">
@@ -51,7 +48,6 @@
                     <div>
                         <label for="">Zip Code</label>
                         <mat-form-field class="example-full-width" appearance="outline">
-                            <mat-label>Enter Zip Code</mat-label>
                             <input matInput name="zipCode"  [(ngModel)] = "this.contact.zipCode">
                         </mat-form-field>
                     </div>

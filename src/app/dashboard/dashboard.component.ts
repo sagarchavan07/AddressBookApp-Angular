@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AddressbookService } from '../service/addressbook.service';
 
@@ -10,14 +11,18 @@ import { AddressbookService } from '../service/addressbook.service';
 export class DashboardComponent implements OnInit {
   contacts: any = [];
 
-  constructor(private router: Router, private service: AddressbookService) { }
+  constructor(private router: Router, private service: AddressbookService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.getAllContacts();
-  }
+  }  
 
   openForm() {
     this.router.navigate(['form']);
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
   }
 
   getAllContacts() {
@@ -28,9 +33,8 @@ export class DashboardComponent implements OnInit {
 
   deleteContact(contactId: number) {
     this.service.deleteContactById(contactId).subscribe((Response) => {
-      console.log("contact deleted " + Response.data);
-      alert("contact deleted of id: " + contactId);
       this.getAllContacts();
+      this.openSnackBar("Deleted Contact Of id "+contactId, "dismiss");
     })
   }
 
